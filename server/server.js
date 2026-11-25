@@ -8,8 +8,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("LearnEase Backend is Running!");
+app.get("/api/health", (req, res) => {
+    res.json({
+        success: true,
+        message: "LearnEase API is working!"
+    });
 });
 
 const PORT = process.env.PORT || 5000;

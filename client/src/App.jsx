@@ -1,140 +1,67 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
+import LessonsMaterials from './pages/instructor/LessonsMaterials';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import StudentDashboard from './pages/student/StudentDashboard';
+import InstructorDashboard from './pages/instructor/InstructorDashboard';
+import CreateCourse from './pages/instructor/CreateCourse';
+import MyCourses from './pages/instructor/MyCourses';
+import Quizzes from './pages/instructor/Quizzes';
+import Assignments from './pages/instructor/Assignments';
+import EnrolledStudents from './pages/instructor/EnrolledStudents';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import ManageStudents from './pages/admin/ManageStudents';
+import ManageInstructors from './pages/admin/ManageInstructors';
+import ManageCourses from './pages/admin/ManageCourses';
+import BrowseCourses from './pages/student/BrowseCourses';
+import StudentMyCourses from './pages/student/MyCourses';
+import StudentAssignments from './pages/student/Assignments';
+import StudentQuizzes from './pages/student/Quizzes';
+import MyProgress from './pages/student/MyProgress';
+import Profile from './pages/student/Profile';
 function App() {
-  const [apiMessage, setApiMessage] = useState('Connecting...')
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/health')
-      .then((response) => response.json())
-      .then((data) => setApiMessage(data.message))
-      .catch(() => setApiMessage('Backend connection failed'))
-  }, [])
-
   return (
-    <div className="dashboard">
+    <BrowserRouter>
+      <Routes>
 
-      {/* Sidebar */}
-      <aside className="sidebar">
-        <h2 className="logo">LearnEase</h2>
+        <Route path="/" element={<Login />} />
 
-        <p className="menu-title">MENU</p>
+        <Route path="/register" element={<Register />} />
 
-        <nav>
-          <a className="active" href="#">Dashboard</a>
-          <a href="#">Browse Courses</a>
-          <a href="#">My Courses</a>
-          <a href="#">Assignments</a>
-          <a href="#">Quizzes</a>
-          <a href="#">My Progress</a>
-          <a href="#">Profile</a>
-        </nav>
+        <Route path="/student" element={<StudentDashboard />} />
 
-        <div className="sidebar-bottom">
-          <a href="#">Logout</a>
-        </div>
-      </aside>
+        <Route path="/instructor" element={<InstructorDashboard />} />
 
-      {/* Main Content */}
-      <main className="main-content">
+       <Route path="/instructor/create-course" element={<CreateCourse />} />
 
-        {/* Navbar */}
-        <header className="navbar">
-          <h3>Student Dashboard</h3>
-          <div className="profile">
-            <span>Student</span>
-            <div className="avatar">S</div>
-          </div>
-        </header>
+       <Route path="/instructor/my-courses" element={<MyCourses />} />
 
-        {/* Welcome Section */}
-        <section className="welcome">
-          <h1>Welcome Back, Student! 👋</h1>
-          <p>Continue your learning journey with LearnEase.</p>
-        </section>
+       <Route path="/instructor/lessons" element={<LessonsMaterials />} />
 
-        {/* Statistics Cards */}
-        <section className="stats">
+      <Route path="/instructor/assignments" element={<Assignments />} />
+    
+      <Route path="/instructor/quizzes" element={<Quizzes />} />
 
-          <div className="stat-card">
-            <h3>Enrolled Courses</h3>
-            <h2>04</h2>
-            <p>Your active courses</p>
-          </div>
+      <Route path="/instructor/students" element={<EnrolledStudents />} />
+          
+      <Route path="/admin" element={<AdminDashboard />} />
 
-          <div className="stat-card">
-            <h3>Available Courses</h3>
-            <h2>12</h2>
-            <p>Explore new courses</p>
-          </div>
+      <Route path="/admin/students" element={<ManageStudents />} />
 
-          <div className="stat-card">
-            <h3>Completed Lessons</h3>
-            <h2>18</h2>
-            <p>Keep learning</p>
-          </div>
+      <Route path="/admin/instructors" element={<ManageInstructors />} />
 
-          <div className="stat-card">
-            <h3>Overall Progress</h3>
-            <h2>65%</h2>
-            <p>Your learning progress</p>
-          </div>
+      <Route path="/admin/courses" element={<ManageCourses />} />
 
-        </section>
-
-        {/* Courses */}
-        <section className="courses-section">
-          <div className="section-heading">
-            <h2>My Courses</h2>
-            <a href="#">View All</a>
-          </div>
-
-          <div className="course-grid">
-
-            <div className="course-card">
-              <div className="course-image">💻</div>
-              <h3>Web Development</h3>
-              <p>Learn HTML, CSS and JavaScript</p>
-              <div className="progress-bar">
-                <div style={{ width: '70%' }}></div>
-              </div>
-              <p>70% Completed</p>
-              <button>Continue Learning</button>
-            </div>
-
-            <div className="course-card">
-              <div className="course-image">🐍</div>
-              <h3>Python Programming</h3>
-              <p>Learn Python from basics</p>
-              <div className="progress-bar">
-                <div style={{ width: '45%' }}></div>
-              </div>
-              <p>45% Completed</p>
-              <button>Continue Learning</button>
-            </div>
-
-            <div className="course-card">
-              <div className="course-image">🗄️</div>
-              <h3>Database Management</h3>
-              <p>Learn SQL and databases</p>
-              <div className="progress-bar">
-                <div style={{ width: '30%' }}></div>
-              </div>
-              <p>30% Completed</p>
-              <button>Continue Learning</button>
-            </div>
-
-          </div>
-        </section>
-
-        {/* Backend Status */}
-        <footer className="backend-status">
-          Backend Status: {apiMessage}
-        </footer>
-
-      </main>
-    </div>
-  )
+<Route path="/student/browse-courses" element={<BrowseCourses />} />
+<Route path="/student/my-courses" element={<StudentMyCourses />} />
+<Route path="/student/assignments" element={<StudentAssignments />} />
+<Route path="/student/quizzes" element={<StudentQuizzes />} />
+<Route path="/student/progress" element={<MyProgress />} />
+<Route path="/student/profile" element={<Profile />} />
+            </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,160 @@
+.my-courses-welcome {
+    margin: 25px 0;
+}
+
+.my-courses-welcome h1 {
+    color: #29234d;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.my-courses-welcome p {
+    color: #77738b;
+}
+
+.my-courses-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.my-summary-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #eeeaf6;
+}
+
+.my-summary-card h3 {
+    color: #77738b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.my-summary-card h2 {
+    color: #7654c8;
+    font-size: 27px;
+    margin-top: 10px;
+}
+
+.my-courses-section > h2 {
+    color: #29234d;
+    margin-bottom: 20px;
+}
+
+.my-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.my-course-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #eeeaf6;
+    border-radius: 13px;
+    box-shadow: 0 3px 12px rgba(40, 30, 80, 0.05);
+}
+
+.my-course-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0ebff;
+    border-radius: 12px;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.my-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.my-status.progress {
+    background: #fff2d9;
+    color: #a66a00;
+}
+
+.my-status.completed {
+    background: #e2f7eb;
+    color: #18834b;
+}
+
+.my-course-card h3 {
+    color: #30294e;
+    margin: 13px 0 8px;
+    font-size: 18px;
+}
+
+.my-instructor {
+    color: #77738b;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.my-course-info,
+.my-progress-heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #77738b;
+}
+
+.my-course-info strong,
+.my-progress-heading strong {
+    color: #30294e;
+}
+
+.my-progress-bar {
+    height: 8px;
+    background: #eeeaf6;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0 20px;
+}
+
+.my-progress-bar div {
+    height: 100%;
+    background: #7654c8;
+    border-radius: 10px;
+}
+
+.my-continue-button {
+    width: 100%;
+    padding: 11px;
+    background: #7654c8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.my-continue-button:hover {
+    background: #6240b2;
+}
+
+@media (max-width: 1000px) {
+    .my-courses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .my-courses-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .my-courses-grid {
+        grid-template-columns: 1fr;
+    }
+}
